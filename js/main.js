@@ -3,23 +3,19 @@
 var add = document.getElementById('add').addEventListener('click', function() {
     var value = document.getElementById('item').value;
 
-  
     if (value) {
         addItem(value);
         document.getElementById('item').value = "";
     }
-  
 })
 
 addEventListener('keypress', function(e) {
-  var value = document.getElementById('item').value;
-    if (e.keyCode === 13) {
-          addItem(value);
+    var value = document.getElementById('item').value;
+    if (e.keyCode === 13 && value.length > 0) {
+        addItem(value);
         document.getElementById('item').value = "";
-    } 
-    if(value === ""){
-     
     }
+
 })
 
 
@@ -43,7 +39,6 @@ function addItem(text) {
     button.addEventListener('click', function() {
         item.remove(this.item);
     })
-
 
     list.insertBefore(item, list.childNodes[0]);
 

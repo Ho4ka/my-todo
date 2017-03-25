@@ -1,5 +1,10 @@
+body {
+    margin-top: 30px;
+}
+
 header {
     width: 90%;
+    border-radius: 100px;
     height: 150px;
     background: #25b99a;
     text-align: center;
@@ -13,7 +18,8 @@ header {
     }
     input {
         text-align: center;
-        width: 300px;
+        width: 25%;
+        min-width: 200px;
         height: 50px;
         margin-top: 15px;
         box-shadow: none;
@@ -40,11 +46,14 @@ header {
         background: #25b99a;
         position: relative;
         top: 20px;
+        left: 20px;
     }
     .material-icons {
         font-size: 55px;
         color: antiquewhite;
+        width: 55px;
     }
+    .material-icons:hover {}
 }
 
 .wrapper {
@@ -61,14 +70,16 @@ header {
     }
     li {
         margin-bottom: 10px;
-        width: 50%;
+        letter-spacing: 2px;
+        width: 90%;
         background: ghostwhite;
         height: 40px;
-        padding-top: 20px;
+        padding-top: 25px;
         border: 1px solid silver;
         text-align: center;
+        font-weight: bold;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-        font-size: 24px;
+        font-size: 17px;
         color: #25b99a;
     }
     li:hover {
@@ -81,6 +92,11 @@ header {
         border: 25px;
         background: ghostwhite;
         position: relative;
-        bottom: 10px;
+        bottom: 15px;
+    }
+    #remove:hover {
+        color: black;
+        cursor: pointer;
+        opacity: 0.5;
     }
 }
