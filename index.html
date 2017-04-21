@@ -14,19 +14,127 @@
 </head>
 
 <body>
-    <header>
 
-        <h1> To-Do List</h1>
+
+
+
+
+
+    <div class="container" id="container">
+
+        <div class="calendar-container">
+
+            <header>
+                <i id="prev" class="material-icons md-48 left-arrow">keyboard_arrow_left</i>
+                <i id="next" class="material-icons md-48 right-arrow">keyboard_arrow_right</i>
+                <div id="day" class="day"></div>
+                <div>
+                    <span id='month'></span><span id='year'></span>
+                </div>
+
+            </header>
+
+            <table id="calendar" class="calendar">
+
+
+                <thead>
+
+                    <tr>
+
+                        <td>Mon</td>
+                        <td>Tue</td>
+                        <td>Wed</td>
+                        <td>Thu</td>
+                        <td>Fri</td>
+                        <td>Sat</td>
+                        <td>Sun</td>
+
+                    </tr>
+
+                </thead>
+
+                <!--<tbody>
+
+                    <tr>
+                        <td class="prev-month">29</td>
+                        <td class="prev-month">30</td>
+                        <td class="prev-month">31</td>
+                        <td id='days' class="days selected">1</td>
+                        <td id="days" class="days">2</td>
+                        <td class="days">3</td>
+                        <td class="days">4</td>
+                    </tr>
+
+                    <tr>
+                        <td class="days">5</td>
+                        <td class="days">6</td>
+                        <td class="days">7</td>
+                        <td class="days">8</td>
+                        <td class="days">9</td>
+                        <td class="days">10</td>
+                        <td class="days">11</td>
+                    </tr>
+
+                    <tr>
+                        <td class="days">12</td>
+                        <td class="days">13</td>
+                        <td class="days">14</td>
+                        <td class="days">15</td>
+                        <td class="days">16</td>
+                        <td class="days">17</td>
+                        <td class="current-day days">18</td>
+                    </tr>
+
+                    <tr>
+                        <td class="days">19</td>
+                        <td class="days">20</td>
+                        <td class="days">21</td>
+                        <td class="days">22</td>
+                        <td class="days">23</td>
+                        <td class="days">24</td>
+                        <td class="days">25</td>
+                    </tr>
+
+                    <tr>
+                        <td class="days">26</td>
+                        <td class="days">27</td>
+                        <td class="days">28</td>
+                        <td class="days">29</td>
+                        <td class="days">30</td>
+                        <td class="days">31</td>
+                        <td class="next-month">1</td>
+                    </tr>
+
+                </tbody>-->
+
+            </table>
+
+            <div class="ring-left"></div>
+            <div class="ring-right"></div>
+
+        </div>
+        <!-- end calendar-container -->
+
+
+
+    </div>
+    <!-- end container -->
+
+    <header id="header">
+
+        <h1 id="title"> To-Do List</h1>
         <input type="text" placeholder="Add Item" id="item">
         <button id="add">
           <i class="material-icons">add_circle_icon</i>
         </button>
 
 
+
     </header>
 
 
     <div class="wrapper">
+
         <ul id="todo">
 
 
@@ -34,6 +142,26 @@
 
 
     </div>
+
+
+
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/3.7.3/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB5G4WZ-WsXEvUF4CR4yWJOfMqHiHCgcUQ",
+            authDomain: "calendar-reminder-9cb9f.firebaseapp.com",
+            databaseURL: "https://calendar-reminder-9cb9f.firebaseio.com",
+            storageBucket: "calendar-reminder-9cb9f.appspot.com",
+            messagingSenderId: "236882463184"
+        };
+        firebase.initializeApp(config);
+    </script>
     <script src="js/main.js"></script>
 </body>
 

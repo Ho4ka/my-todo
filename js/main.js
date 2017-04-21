@@ -1,4 +1,53 @@
-// var removeSVG = '<svg fill="#000000" height="24" viewBox="0 0 24 24" width="24"xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/><path d="M0 0h24v24H0z" fill="none"/></svg>';
+var cellsInRow = 7;
+
+var currentnum = 0;
+
+// creating rows
+var getDaysInMonth = function(month, year) {
+
+    var now = new Date();
+    return new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+}
+
+
+
+
+function generateMonthIU(date) {
+
+    var length = getDaysInMonth(date.getMonth(), date.getFullYear());
+    var startDay = date.getDay();
+    // get the reference for the body
+    var div1 = document.getElementById('calendar');
+
+    // creates a <table> element
+    var tbl = document.createElement("tbody");
+
+    for (var r = 0; r < Math.ceil(length / cellsInRow); r++) {
+        var row = document.createElement("tr");
+
+        // create cells in row
+        for (var c = 0; c < cellsInRow; c++) {
+            if (currentnum - startDay < length) {
+                var cell = document.createElement("td");
+
+                currentnum += 1;
+                if (startDay < currentnum) {
+                    var cellText = document.createTextNode(currentnum - startDay);
+                    cell.appendChild(cellText);
+                    cell.classList.add("days");
+                }
+                row.appendChild(cell);
+            }
+        }
+
+        tbl.appendChild(row); // add the row to the end of the table body
+    }
+
+    div1.appendChild(tbl); // appends <table> into <div1>
+
+}
+
+
 
 var add = document.getElementById('add').addEventListener('click', function() {
     var value = document.getElementById('item').value;
@@ -8,16 +57,6 @@ var add = document.getElementById('add').addEventListener('click', function() {
         document.getElementById('item').value = "";
     }
 })
-
-addEventListener('keypress', function(e) {
-    var value = document.getElementById('item').value;
-    if (e.keyCode === 13 && value.length > 0) {
-        addItem(value);
-        document.getElementById('item').value = "";
-    }
-
-})
-
 
 function addItem(text) {
     var list = document.getElementById('todo');
@@ -31,15 +70,65 @@ function addItem(text) {
     button.id = "remove"
     item.appendChild(button);
 
-    //    var materialIcon = document.createElement('i');
-    //    materialIcon.classList=('materi-icon');
-    //    materialIcon.innerText= removeSVG;
-    //    item.appendChild(materialIcon);
-
     button.addEventListener('click', function() {
-        item.remove(this.item);
+        item.remove(item);
     })
 
     list.insertBefore(item, list.childNodes[0]);
 
 };
+
+document.addEventListener('keypress', function(e) {
+    var value = document.getElementById('item').value;
+
+    if (e.keyCode === 13 && value.length > 0 && value.replace(/\s+/g, '')) {
+        addItem(value);
+        document.getElementById('item').value = "";
+    }
+
+})
+var month_name = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+document.addEventListener('DOMContentLoaded', function() {
+
+    var d = new Date();
+
+    var month = d.getMonth();
+    var year = d.getFullYear();
+
+    document.getElementById('month').innerHTML = month_name[month];
+    document.getElementById('year').innerHTML = " " + year;
+    document.getElementById('day').innerHTML = d.getDate();
+
+    // Highlight today
+    var days = document.getElementsByClassName('days');
+    var toDay = d.getDate();
+
+    days[toDay - 1].classList.add('currentDay');
+
+
+
+
+
+    document.getElementById('next').addEventListener('click', function(e) {
+
+        var month = document.getElementById('month').innerText;
+        var idx = month_name.indexOf(month);
+        idx++;
+        var nextMonth = month_name[idx];
+        generateMonthIU(new Date());
+        document.getElementById('month').innerText = nextMonth;
+
+    })
+    document.getElementById('prev').addEventListener('click', function(e) {
+        var month = document.getElementById('month').innerText;
+        var idx = month_name.indexOf(month);
+        idx--;
+        var nextMonth = month_name[idx];
+        generateMonthIU(new Date());
+        document.getElementById('month').innerText = nextMonth;
+    })
+
+});
+
+generateMonthIU(new Date());

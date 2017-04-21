@@ -1,20 +1,22 @@
 body {
-  margin-top: 30px; }
+  margin-top: 30px;
+  background: #e1e1e1; }
 
-header {
+#header {
   width: 90%;
   border-radius: 100px;
   height: 150px;
   background: #25b99a;
   text-align: center;
   margin: 0 auto;
+  margin-top: 20px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
-  header h1 {
+  #header h1 {
     font-size: 30px;
     padding-top: 20px;
     color: antiquewhite;
     text-align: center; }
-  header input {
+  #header input {
     text-align: center;
     width: 25%;
     min-width: 200px;
@@ -27,9 +29,9 @@ header {
     border-radius: 25px 5px 25px 5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
-  header input:hover {
+  #header input:hover {
     box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
-  header button {
+  #header button {
     width: 70px;
     height: 60px;
     border: 0px;
@@ -43,7 +45,7 @@ header {
     position: relative;
     top: 20px;
     left: 20px; }
-  header .material-icons {
+  #header .material-icons {
     font-size: 55px;
     color: antiquewhite;
     width: 55px; }
@@ -86,5 +88,246 @@ header {
     color: black;
     cursor: pointer;
     opacity: 0.5; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+td {
+  padding: 0; }
+
+.container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  text-align: center;
+  justify-content: center; }
+
+.calendar-container {
+  position: relative;
+  width: 420px; }
+
+.calendar-container header {
+  border-radius: 1em 1em 0 0;
+  background: #25b99a;
+  color: #fff;
+  padding: 3em 3em;
+  width: 420px; }
+
+.day {
+  font-size: 8em;
+  font-weight: 900;
+  line-height: 1em; }
+
+.month {
+  font-size: 4em;
+  line-height: 1em;
+  text-transform: lowercase; }
+
+.calendar {
+  background: #fff;
+  border-radius: 0 0 1em 1em;
+  -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 3px 1px #fff;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 3px 1px #fff;
+  color: #555;
+  display: inline-block;
+  padding: 3em;
+  width: 420px; }
+
+.calendar thead {
+  color: #e66b6b;
+  font-weight: 700;
+  text-transform: uppercase; }
+
+.calendar td {
+  padding: .5em 1em;
+  text-align: center; }
+
+.current-day {
+  color: #e66b6b; }
+
+.prev-month,
+.next-month {
+  color: #cacaca; }
+
+.ring-left,
+.ring-right {
+  position: absolute;
+  top: 180px; }
+
+.ring-left {
+  left: 2em; }
+
+.ring-right {
+  right: 2em; }
+
+.ring-left:before,
+.ring-left:after,
+.ring-right:before,
+.ring-right:after {
+  background: #fff;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 3px 1px rgba(0, 0, 0, 0.3), 0 -1px 1px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 3px 1px rgba(0, 0, 0, 0.3), 0 -1px 1px rgba(0, 0, 0, 0.2);
+  content: "";
+  display: inline-block;
+  margin: 8px;
+  height: 32px;
+  width: 8px;
+  position: relative;
+  top: 40px; }
+
+.left-arrow {
+  float: left;
+  cursor: pointer; }
+
+.right-arrow {
+  float: right;
+  cursor: pointer; }
+
+.days:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  background: #25b99a;
+  width: 10px;
+  height: 10px; }
+
+/* Popup container */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer; }
+
+/* The actual popup (appears on top) */
+.popup .popuptext {
+  visibility: hidden;
+  width: 260px;
+  height: 200px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 8px 0;
+  position: absolute;
+  z-index: 3;
+  bottom: 125%;
+  left: 500px; }
+
+/* Popup arrow */
+.popup .popuptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent; }
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s; }
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+#test {
+  width: 90%;
+  border-radius: 100px;
+  height: 150px;
+  background: #25b99a;
+  text-align: center;
+  margin: 0 auto;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  #test h1 {
+    font-size: 30px;
+    padding-top: 20px;
+    color: antiquewhite;
+    text-align: center; }
+  #test input {
+    text-align: center;
+    width: 25%;
+    min-width: 200px;
+    height: 50px;
+    margin-top: 15px;
+    box-shadow: none;
+    outline: none;
+    font-size: 24px;
+    color: #25b99a;
+    border-radius: 25px 5px 25px 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  #test input:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  #test button {
+    width: 70px;
+    height: 60px;
+    border: 0px;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 25px;
+    background: #25b99a;
+    position: relative;
+    top: 20px;
+    left: 20px; }
+  #test .material-icons {
+    font-size: 55px;
+    color: antiquewhite;
+    width: 55px; }
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  .wrapper ul {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    margin-top: 30px; }
+  .wrapper li {
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    width: 90%;
+    background: ghostwhite;
+    height: 40px;
+    padding-top: 25px;
+    border: 1px solid silver;
+    text-align: center;
+    font-weight: bold;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    font-size: 17px;
+    color: #25b99a; }
+  .wrapper li:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .wrapper #remove {
+    float: right;
+    font-size: 30px;
+    color: #25b99a;
+    border: 25px;
+    background: ghostwhite;
+    position: relative;
+    bottom: 15px; }
+  .wrapper #remove:hover {
+    color: black;
+    cursor: pointer;
+    opacity: 0.5; }
+
+.currentDay {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
 
 /*# sourceMappingURL=style.css.map */
