@@ -1,28 +1,32 @@
 var cellsInRow = 7;
+var monthDate = new Date();
 
-var currentnum = 0;
 
 // creating rows
 var getDaysInMonth = function(month, year) {
+    return new Date(year, month + 1, 0).getDate();
+}
 
-    var now = new Date();
-    return new Date(now.getFullYear(), now.getMonth() + 1, 0).getDate();
+var getMonthStartDay = function(month, year) {
+    return new Date(year, month).getDay() - 1;
 }
 
 
 
+function generateMonthIU(month, year) {
+    var currentnum = 0;
 
-function generateMonthIU(date) {
-
-    var length = getDaysInMonth(date.getMonth(), date.getFullYear());
-    var startDay = date.getDay();
+    var length = getDaysInMonth(month, year);
+    var startDay = getMonthStartDay(month, year);
     // get the reference for the body
+
     var div1 = document.getElementById('calendar');
+    div1.innerHTML = "";
 
     // creates a <table> element
     var tbl = document.createElement("tbody");
 
-    for (var r = 0; r < Math.ceil(length / cellsInRow); r++) {
+    for (var r = 0; r <= Math.ceil(length / cellsInRow); r++) {
         var row = document.createElement("tr");
 
         // create cells in row
@@ -46,6 +50,9 @@ function generateMonthIU(date) {
     div1.appendChild(tbl); // appends <table> into <div1>
 
 }
+
+
+
 
 
 
@@ -113,22 +120,28 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('next').addEventListener('click', function(e) {
 
         var month = document.getElementById('month').innerText;
+        var year = new Number(document.getElementById('year').innerText);
         var idx = month_name.indexOf(month);
+
         idx++;
         var nextMonth = month_name[idx];
-        generateMonthIU(new Date());
+        monthDate.setMonth(monthDate.getMonth() + 1);
+        generateMonthIU(idx, year);
         document.getElementById('month').innerText = nextMonth;
 
     })
     document.getElementById('prev').addEventListener('click', function(e) {
         var month = document.getElementById('month').innerText;
+        var year = new Number(document.getElementById('year').innerText);
         var idx = month_name.indexOf(month);
+
         idx--;
         var nextMonth = month_name[idx];
-        generateMonthIU(new Date());
+        monthDate.setMonth(monthDate.getMonth() - 1);
+        generateMonthIU(idx, year);
         document.getElementById('month').innerText = nextMonth;
     })
 
 });
 
-generateMonthIU(new Date());
+generateMonthIU(new Date().getMonth(), new Date().getFullYear());
