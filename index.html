@@ -5,6 +5,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animate.css">
 
 
     <meta charset="UTF-8">
@@ -20,9 +21,9 @@
 
 
 
-    <div class="container" id="container">
+    <div class="container " id="container">
 
-        <div class="calendar-container">
+        <div class="calendar-container animated fadeInUpBig">
 
             <header>
                 <i id="prev" class="material-icons md-48 left-arrow">keyboard_arrow_left</i>
@@ -32,26 +33,34 @@
                     <span id='month'></span><span id='year'></span>
                 </div>
 
+
             </header>
 
-            <table id="calendar" class="calendar">
+            <table id="" class="calendar-week">
 
 
-                <thead>
 
-                    <tr>
 
-                        <td>Mon</td>
-                        <td>Tue</td>
-                        <td>Wed</td>
-                        <td>Thu</td>
-                        <td>Fri</td>
-                        <td>Sat</td>
-                        <td>Sun</td>
+                <tr>
 
-                    </tr>
+                    <td>Mon</td>
+                    <td>Tue</td>
+                    <td>Wed</td>
+                    <td>Thu</td>
+                    <td>Fri</td>
+                    <td>Sat</td>
+                    <td>Sun</td>
 
-                </thead>
+                </tr>
+
+
+
+
+            </table>
+
+            <table id="calendar" class="calendar animated rotateInDownLeft">
+
+
 
 
             </table>
@@ -64,31 +73,31 @@
 
 
 
-    </div>
-    <!-- end container -->
 
-    <header id="header">
 
-        <h1 id="title"> To-Do List</h1>
-        <input type="text" placeholder="Add Item" id="item">
-        <button id="add">
+        <div class="wrapper animated fadeInDown">
+
+            <header id="header">
+
+                <h1 id="title"> To-Do List</h1>
+                <input type="text" placeholder="Add Item" id="item">
+                <button id="add">
           <i class="material-icons">add_circle_icon</i>
         </button>
 
 
 
-    </header>
+            </header>
+            <ul id="todo">
 
 
-    <div class="wrapper">
-
-        <ul id="todo">
+            </ul>
 
 
-        </ul>
-
+        </div>
 
     </div>
+    <!-- end container -->
 
 
 
@@ -98,7 +107,22 @@
 
 
 
+    <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB5G4WZ-WsXEvUF4CR4yWJOfMqHiHCgcUQ",
+            authDomain: "calendar-reminder-9cb9f.firebaseapp.com",
+            databaseURL: "https://calendar-reminder-9cb9f.firebaseio.com",
+            projectId: "calendar-reminder-9cb9f",
+            storageBucket: "calendar-reminder-9cb9f.appspot.com",
+            messagingSenderId: "236882463184"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script src="calendar-reminder-9cb9f-export.json"></script>
     <script src="js/main.js"></script>
+
 </body>
 
 </html>

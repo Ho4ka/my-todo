@@ -3,7 +3,7 @@ body {
   background: #e1e1e1; }
 
 #header {
-  width: 90%;
+  width: 75%;
   border-radius: 100px;
   height: 150px;
   background: #25b99a;
@@ -132,15 +132,30 @@ td {
   color: #555;
   display: inline-block;
   padding: 3em;
-  width: 420px; }
+  width: 420px;
+  padding-top: 0px; }
+
+.calendar-week {
+  background: #fff;
+  -webkit-box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 3px 1px #fff;
+  box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2), 0 3px 1px #fff;
+  color: #555;
+  display: flex;
+  padding: 3em;
+  width: 420px;
+  color: #e66b6b;
+  font-weight: 400; }
 
 .calendar thead {
   color: #e66b6b;
   font-weight: 700;
   text-transform: uppercase; }
 
+.calendar-week td {
+  padding: .1em 1.2em; }
+
 .calendar td {
-  padding: .5em 1em;
+  padding: .5em 1.5em;
   text-align: center; }
 
 .current-day {
@@ -159,7 +174,7 @@ td {
   left: 2em; }
 
 .ring-right {
-  right: 2em; }
+  right: -4em; }
 
 .ring-left:before,
 .ring-left:after,
@@ -288,9 +303,10 @@ td {
     width: 55px; }
 
 .wrapper {
-  width: 100%;
+  width: 60%;
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  margin: 0 auto; }
   .wrapper ul {
     display: flex;
     flex-direction: column;

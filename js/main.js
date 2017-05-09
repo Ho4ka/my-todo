@@ -2,6 +2,7 @@ var cellsInRow = 7;
 var monthDate = new Date();
 
 
+
 // creating rows
 var getDaysInMonth = function(month, year) {
     return new Date(year, month + 1, 0).getDate();
@@ -13,7 +14,10 @@ var getMonthStartDay = function(month, year) {
 
 
 
+
+
 function generateMonthIU(month, year) {
+
     var currentnum = 0;
 
     var length = getDaysInMonth(month, year);
@@ -23,8 +27,13 @@ function generateMonthIU(month, year) {
     var div1 = document.getElementById('calendar');
     div1.innerHTML = "";
 
+
     // creates a <table> element
+    var tblHead = document.createElement('thead');
+    var weekRow = document.createElement('tr');
+
     var tbl = document.createElement("tbody");
+
 
     for (var r = 0; r <= Math.ceil(length / cellsInRow); r++) {
         var row = document.createElement("tr");
@@ -49,9 +58,10 @@ function generateMonthIU(month, year) {
 
     div1.appendChild(tbl); // appends <table> into <div1>
 
+
+
+
 }
-
-
 
 
 
@@ -103,16 +113,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var month = d.getMonth();
     var year = d.getFullYear();
 
+
+
     document.getElementById('month').innerHTML = month_name[month];
     document.getElementById('year').innerHTML = " " + year;
     document.getElementById('day').innerHTML = d.getDate();
 
     // Highlight today
+
     var days = document.getElementsByClassName('days');
+
     var toDay = d.getDate();
 
     days[toDay - 1].classList.add('currentDay');
-
 
 
 
@@ -142,6 +155,17 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('month').innerText = nextMonth;
     })
 
+
+
 });
 
 generateMonthIU(new Date().getMonth(), new Date().getFullYear());
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'calendar-reminder-9cb9f-export.json', false);
+xhr.send();
+if (xhr.status != 200) {
+    alert(xhr.status);
+} else {
+    var data = JSON.parse(xhr.responseText);
+}
